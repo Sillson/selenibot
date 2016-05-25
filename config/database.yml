@@ -1,0 +1,17 @@
+default: &default
+  pool:  5 
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  database: qandroid
+
+test:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  database: qandroid-test
