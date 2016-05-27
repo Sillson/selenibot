@@ -1,3 +1,35 @@
-<div class="jumbotron">
-  <h1>QAndroid</h1>
+<div class="container">
+  <div class="row">
+    <h1>QAndroid</h1>
+    <p>An experimental integrated test suite -- designed to quickly peform basic tasks on the CMS.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="col-md-6">
+    <div class="jumbotron">
+      <%= form_tag(run_test_path, method: "post") do %>
+        <fieldset class="form-group">
+          <%= label_tag(:cms, "CMS") %>
+          <%= text_field_tag(:cms, "", class: 'form-control') %>
+        </fieldset>
+        <fieldset class="form-group">
+          <%= label_tag(:browser, "Browser") %>
+          <%= select_tag(:browser, options_for_select(["firefox", "chrome"]), class: 'form-control') %>
+        </fieldset>
+        <fieldset class="form-group">
+          <%= label_tag(:timeout, "Timeout") %>
+          <%= number_field_tag(:timeout, 15, class: 'form-control') %>
+        </fieldset>
+        <fieldset class="form-group">
+          <%= label_tag(:email, "Email") %>
+          <%= text_field_tag(:email, "", class: 'form-control') %>
+        </fieldset>
+        <fieldset class="form-group">
+          <%= label_tag(:password, "Password") %>
+          <%= password_field_tag(:password, "", class: 'form-control') %>
+        </fieldset>
+        <%= submit_tag("Run Test", class: 'btn btn-primary') %>
+      <% end %>
+    </div>
+  </div>
 </div>
